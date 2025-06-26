@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Overlay</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">Overlay</div>
+    <p class="subtitle"> </p>
+    <div class="buttons">
+      <button id="startBtn">Iniciar Simulação</button>
+      <button id="stopBtn">Parar</button>
+      <button id="home">Voltar ao início</button>
+    </div>
+    <div class="memory" id="memoryContainer">
+      
+    </div>
+    <div class="lists">
+      <div class="frame fila">
+        <div class="header" >Fila:</div>
+        <ul id="queueList"></ul>
+      </div>
+      <div class="frame ativas">
+        <div class="header">Ativas:</div>
+        <ul id="activeList"></ul>
+      </div>
+      <div class="frame concluidas">
+        <div class="header">Concluídas:</div>
+        <ul id="completedList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

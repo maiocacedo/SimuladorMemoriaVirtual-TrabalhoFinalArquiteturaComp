@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Paginação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">Paginação</div>
+    <p class="subtitle"></p>
+    <div class="buttons">
+      <button id="startBtn">Iniciar Simulação</button>
+      <button id="stopBtn">Parar</button>
+      <button id="home">Voltar ao início</button>
+    </div>
+
+    <!-- área de frames físicos -->
+    <div class="memory" id="memoryContainer"></div>
+
+    <!-- área de logs e tabelas de páginas -->
+    <div class="logs">
+      <div class="frame">
+        <div class="header">Tabelas de Páginas</div>
+        <!-- aqui o JS injeta as <table class="page-table"> -->
+        <div id="pageTablesContainer"></div>
+      </div>
+      <div class="frame">
+        <div class="header">Log de Eventos</div>
+        <ul id="eventLog"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="paginacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de memória virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">Bem-vindo ao Simulador de Memória Virtual!</div>
+    <p class="subtitle">Caio Macedo Lima da Cruz RA.:2651378</p>
+    <div class="buttons">
+      <button id="overlay">Overlay</button>
+      <button id="paginacao">Paginação</button>
+    </div>
+    <div class="memory" id="memoryContainer">
+        <div class="description">
+          <p>Este simulador é um trabalho concebido para disciplina de Arquitetura e Organização de Computadores permite que você visualize como a memória virtual funciona, seja através de overlay ou paginação. 
+            Ele foi desenvolvido com propósito de compreender as duas formas de gerenciar a memória. </p>
+            <p>Escolha uma das opções para começar.</p>
+    </div>
+  
+  <script type="text/javascript">
+      document.getElementById("overlay").onclick = function () {
+        location.href = "overlay.html";
+    };
+      document.getElementById("paginacao").onclick = function () {
+        location.href = "paginacao.html";
+    };
+  </script>
+</body>
+</html>

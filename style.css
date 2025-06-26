@@ -1,0 +1,293 @@
+:root {
+  /* fundo e painel */
+  --bg-gradient-start: #FA6663;
+  --bg-gradient-end:#952BF8;
+  --panel-bg: #E10C08;
+
+  /* paleta vintage para subrotinas */
+  --sub-color-1: #8626df;
+  --sub-color-2: #26d7da;
+  --sub-color-3: #82e526;
+  --sub-color-4: #9d5353;
+  --sub-color-5: #e9d5da;
+
+  /* texto */
+  --text-main: #ede6db;
+  --text-secondary: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Plano de fundo e corpo */
+
+body {
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  ); /* gradiente suave */
+  background-size: 400% 400%;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text-secondary);
+  min-height: 100vh;
+}
+
+/* Estilo do container principal */
+
+.container {
+  width: 1100px;
+  margin: 40px auto;
+  backdrop-filter: blur(8px);
+  background: var(--panel-bg);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Título, subtítulo e descrição */
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 1px;
+  color: var(--text-main);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: var(--text-main);
+}
+
+.description {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 16px;
+  color: var(--text-main);
+  margin-bottom: 30px;
+}
+
+/* Estilo dos botões */
+
+.buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.buttons button {
+  background: var(--panel-bg);
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  padding: 8px 16px;
+  margin: 0 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.buttons button:hover {
+  background: rgba(237, 230, 219, 0.3);
+}
+
+/* Estilo da rotina principal e das subrotinas */
+
+.memory {
+  display: flex;
+  align-items: stretch;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+  flex: 0 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sub-color-2), var(--sub-color-3));
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.sub {
+  flex: 0 0 15%;
+  margin-left: 1%;
+  background: var(--sub-color-1); /* será sobrescrito pelo JS com gradiente */
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sub:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.sub div {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 2px 0;
+}
+
+/* Estilo dos frames de memória e listas de páginas */
+
+.lists {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.frame {
+  width: 350px;
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.frame .header {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+.frame ul {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.frame ul li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+/* scrollbar agradável e discreto */
+
+.frame ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.frame ul::-webkit-scrollbar-thumb {
+  background: rgba(237, 230, 219, 0.4);
+  border-radius: 3px;
+}
+
+/* Estilo dos slots de memória para paginação */
+
+.frame-slot {
+  flex: 0 0 calc((100% / 6.15));      /* 6 frames na memória física */
+  margin: 0 2px;
+  background: var(--panel-bg);
+  border: 1px solid #999;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--text-main);
+}
+
+/* Estilo dos logs de execução */
+
+.logs {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.logs .frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 0;  
+}
+
+.logs .frame .header {
+  flex: 0;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+
+.logs .frame ul {
+  flex: 1;            /* ocupa todo o espaço vertical restante */
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  overflow-y: auto;   /* rolagem interna quando passar do espaço */
+  /* removido max-height */
+}
+
+/* Container de paginação: alinha os frame-slots em linha */
+
+.paginacao {
+  display: flex;
+  justify-content: center;  /* centra horizontalmente */
+  align-items: center;      /* alinha verticalmente */
+  gap: 4px;                 /* espaço entre cada slot */
+  margin: 16px 0;           /* distância acima e abaixo */
+}
+
+/* Estilo da tabela de páginas */
+
+.page-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.page-table caption {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+/* Coluna 1: Subrotina */
+.page-table th:nth-child(1),
+.page-table td:nth-child(1) {
+  width: 25%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* Coluna 2: Página # */
+.page-table th:nth-child(2),
+.page-table td:nth-child(2) {
+  width: 10%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* Coluna 3: Endereço virtual */
+.page-table th:nth-child(3),
+.page-table td:nth-child(3) {
+  width: 35%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* Coluna 4: Frame */
+.page-table th:nth-child(4),
+.page-table td:nth-child(4) {
+  width: 20%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
