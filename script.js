@@ -10,7 +10,7 @@ document.getElementById("home").onclick = function () {
     };
 
 
-// paleta vintage
+// paleta 
 const subColors = ["#8DF82B", "#2BF4F8"];
 
 // estado das subrotinas

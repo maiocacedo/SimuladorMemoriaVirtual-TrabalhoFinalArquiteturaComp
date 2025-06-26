@@ -230,5 +230,5 @@ stopBtn .addEventListener('click',  stopSimulation);
 document.getElementById('home')
         .addEventListener('click', () => location.href = 'index.html');
 
-// ao iniciar página
+// ao iniciar a página
 stopBtn.disabled = true;
