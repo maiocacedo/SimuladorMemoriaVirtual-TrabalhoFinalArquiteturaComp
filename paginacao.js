@@ -182,7 +182,7 @@ function startSimulation() {
         const victimFrame = frameQueue.shift();
         const [vProc, vSub, vPg] = frameTable[victimFrame];
         pageTables[vProc][vSub][vPg] = null;
-        logEvent(`Substituindo ${vSub}[${vPg}] de ${vProc} em frame ${victimFrame}`, 'orange'); // mensagem substituição
+        logEvent(`Substituindo ${vSub}[${vPg}] de ${vProc} em frame ${victimFrame}`, 'rgb(237, 154, 1)'); // mensagem substituição
         frame = victimFrame;
       }
       // carrega a página na memória
@@ -191,10 +191,10 @@ function startSimulation() {
       frameQueue.push(frame);
       updateFrameUI(frame);
       updatePageTablesUI();
-      logEvent(`Page fault: ${procName}/${subName}[${pageNum}] → frame ${frame}`, '#8626df');// mensagem page fault
+      logEvent(`Page fault: ${procName}/${subName}[${pageNum}] → frame ${frame}`, 'rgb(251, 238, 53)');// mensagem page fault
     } else {
       // já está na memória (hit)
-      logEvent(`Hit: ${procName}/${subName}[${pageNum}] já em frame ${table[pageNum]}`, 'green'); // mensagem hit
+      logEvent(`Hit: ${procName}/${subName}[${pageNum}] já em frame ${table[pageNum]}`, 'rgb(48, 252, 41)'); // mensagem hit
     }
 
     refIndex++; // avança para o próximo acesso

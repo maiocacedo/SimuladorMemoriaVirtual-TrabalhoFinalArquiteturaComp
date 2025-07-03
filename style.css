@@ -116,7 +116,7 @@ body {
 }
 
 .sub {
-  flex: 0 0 15%;
+  flex: 0 0 14%;
   margin-left: 1%;
   background: var(--sub-color-1); /* será sobrescrito pelo JS com gradiente */
   border-radius: 6px;
